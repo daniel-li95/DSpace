@@ -142,6 +142,31 @@
 </c:forEach>
 </table>
 <% } %>
+ 
+ 
+<a class="btn btn-default" onclick="download_item()">Download</a> 
+<!--
+	<script type="text/javascript">
+        function download_item() {
+            // var progressDiv = $("#downloadProgressInfo");
+            // progressDiv.show();
+            // progressDiv.find("div.progress").show();
+            // progressDiv.find("p.downloadInProgress").show();
+            // progressDiv.find("p.downloadError").hide();
+            $.ajax("<%= request.getContextPath() %>/handle/<%= handle %>/download")
+                .success(function(_, _, jqxhr) {
+                    progressDiv.hide();
+                    window.location.href = jqxhr.getResponseHeader("Location");
+                })
+                .error(function(jqxhr, status, errorText) {
+                    progressDiv.find("div.progress").hide();
+                    progressDiv.find("p.downloadInProgress").hide();
+                    progressDiv.find("p.downloadError").show().text(status || errorText);
+                });
+            }
+    </script>
+-->
+
 
 </dspace:layout>
 
